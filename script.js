@@ -29,7 +29,7 @@ for (const drill of quizzes) {
 quizContainer.innerHTML = `${quizButtons}`;
 document.querySelectorAll(".quiz-btn").forEach(item => {
     item.addEventListener("click", (e) => {
-        currentQuiz = selectQuiz(e.target);
+        currentQuiz = selectQuiz(e.target.innerHTML);
         loadQuiz(currentQuiz)
     })
 })
