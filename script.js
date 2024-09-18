@@ -8,11 +8,11 @@ const quizBtn = document.querySelectorAll(".quiz-btn");
 
 const content = document.querySelector(".content");
 const questionNum = document.querySelector(".question-num");
-const questionContainer = document.querySelector(".question");
+const questionContainer = document.querySelector(".question-container");
 const answerContainer = document.querySelector(".answer-container");
 
 const finish = document.querySelector(".finish");
-const divAcertos = document.querySelector(".acertos")
+const divAcertos = document.querySelector(".acertos");
 const restartBtn = document.querySelector(".restart-btn");
 const menuBtn = document.querySelector(".menu-btn");
 
@@ -30,7 +30,7 @@ quizContainer.innerHTML = `${quizButtons}`;
 document.querySelectorAll(".quiz-btn").forEach(item => {
     item.addEventListener("click", (e) => {
         currentQuiz = selectQuiz(e.target.innerHTML);
-        loadQuiz(currentQuiz)
+        loadQuiz(currentQuiz);
     })
 })
 
@@ -53,7 +53,7 @@ function loadQuiz() {
 // funcao que carrega uma pergunta e as respostas
 function loadQuestion() {
     questionNum.innerHTML = `${currentQuestionNum + 1} / ${currentQuiz.exercises.length}`;
-    questionContainer.innerHTML = currentQuiz.exercises[currentQuestionNum].question;
+    questionContainer.innerHTML = "Quanto é " + currentQuiz.exercises[currentQuestionNum].question + "?";
     answerContainer.innerHTML = "";
     for (const answer of currentQuiz.exercises[currentQuestionNum].answers) {
         const answerDiv = document.createElement("div");
@@ -82,7 +82,7 @@ function nextQuestion(e) {
 function finishQuiz () {
     content.style.display = "none";
     finish.style.display = "flex";
-    divAcertos.innerHTML = `Voce acertou ${correctAnswers} de ${currentQuiz.exercises.length} perguntas`
+    divAcertos.innerHTML = `Você acertou ${correctAnswers} de ${currentQuiz.exercises.length} perguntas`
     correctAnswers = 0;
     currentQuestionNum = 0;
 }
