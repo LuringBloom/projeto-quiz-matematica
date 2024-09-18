@@ -1,6 +1,8 @@
 :root {
     --menu-padding: 0.4em;
     --border-radius: 0.7em;
+    --button-color: #0074D9;
+    --answer-color: #B721FF;
 }
 
 *, *::before, *::after {
@@ -23,18 +25,17 @@ body {
     gap: 10px;
     height: 100vh;
     width: 100vw;
-    background-color: #21D4FD;
-    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+    background-image: linear-gradient(19deg, #0074D9 0%, #B721FF 100%);
 }
 
 .title {
     font-size: 320%;
-    color: black;
+    color: white;
 }
 
 main {
     width: 37em;
-    height: 25em;
+    height: 20em;
     padding: 1em;
     border-radius: var(--border-radius);
     background-color: white;
@@ -57,16 +58,19 @@ main {
     height: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-content: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 1em;
 }
 
 .quiz-btn {
     width: 6em;
-    height: 6em;
+    height: 4em;
     font-size: 1.3em;
+    border-radius: var(--border-radius);
+    background-color: var(--button-color);
+    color: white;
 }
 
 .content {
@@ -78,7 +82,14 @@ main {
 
 .content * {
     width: 100%;
-    font-size: 1em;
+}
+
+.question-num {
+    font-size: 1.2em;
+}
+
+.question-container {
+    font-size: 1.2em;
 }
 
 .answer-container {
@@ -89,12 +100,14 @@ main {
 }
 
 .answer {
-    background-color: #21D4FD;
+    background-color: var(--answer-color);
+    color: white;
     height: 2em;
     padding: 0.3em;
     padding-left: 1em;
     border-radius: var(--border-radius);
     text-align: left;
+    font-size: 1.1em;
 }
 
 .finish {
@@ -102,21 +115,37 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1em;
+}
+
+.acertos {
+    font-size: 1.7em;
 }
 
 .finish-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 16em;
+    width: 100%;
     height: 5em;
     gap: 4em;
 }
 
 .finish-buttons button {
     display: inline;
-    width: 6em;
-    height: 4em;
+    width: 9em;
+    font-size: 1.2em;
+    height: 3.6em;
+    color: white;
     border-radius: var(--border-radius);
+    background-color: var(--button-color);
 }
 
+@media only screen and (max-width: 425px) { 
+    .title {
+        font-size: 200%;
+    }
+    main {
+        width: 23em;
+    }
+}
